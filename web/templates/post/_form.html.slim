@@ -1,0 +1,13 @@
+= form_for @changeset, post_path(@conn, :update, @changeset.data), fn f ->
+  .input
+    = label f, :title
+    = text_input f, :title, class: "string"
+    = error_tag f, :title
+
+  .input
+    = label f, :body
+    = textarea f, :body
+    = error_tag f, :body
+
+  .actions
+    = submit "Save"
