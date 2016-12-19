@@ -2,7 +2,11 @@ defmodule Oldskool.PostController do
   use Oldskool.Web, :controller
 
   def index(conn, _) do
-    posts = conn.assigns.current_site |> assoc(:posts) |> Repo.all
+    posts = conn.assigns.current_site
+    |> assoc(:posts)
+    |> order_by(desc: :inserted_at)
+    |> Repo.all
+
     render(conn, "index.html", posts: posts)
   end
 end
