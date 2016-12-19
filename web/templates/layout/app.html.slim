@@ -11,6 +11,14 @@ html lang="en"
 
   body
     .container
+      nav role="main"
+        strong = @current_site.title
+        = if @current_user do
+          '  &middot; <%= @current_user.name %>
+          '  &middot; <%= link "Log out", to: "#" %>
+        - else
+          '  &middot; <%= link "Log in", to: "#" %>
+
       p.alert.alert-info role="alert"= get_flash(@conn, :info)
       p.alert.alert-danger role="alert"= get_flash(@conn, :error)
 
