@@ -1,10 +1,11 @@
 defmodule Oldskool.PostController do
   use Oldskool.Web, :controller
 
-  alias Oldskool.Post
+  # alias Oldskool.Post
 
   def index(conn, _) do
-    posts = current_site_posts(conn)
+    posts = conn
+    |> current_site_posts
     |> order_by(desc: :inserted_at)
     |> Repo.all
 
@@ -12,7 +13,7 @@ defmodule Oldskool.PostController do
   end
 
   def show(conn, %{"id" => id}) do
-    post = current_site_posts(conn) |> Repo.get(id)
+    post = conn |> current_site_posts |> Repo.get(id)
     render(conn, "show.html", post: post)
   end
 

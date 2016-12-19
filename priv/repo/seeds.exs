@@ -24,6 +24,10 @@ Repo.insert! Post.changeset(%Post{author_id: hmans.id, site_id: site.id}, %{
 })
 
 Repo.insert! Post.changeset(%Post{author_id: hmans.id, site_id: site.id}, %{
+  body: "How about a post without a title?"
+})
+
+Repo.insert! Post.changeset(%Post{author_id: hmans.id, site_id: site.id}, %{
   title: "Another post",
   body: "Here's another post for your enjoyment."
 })
