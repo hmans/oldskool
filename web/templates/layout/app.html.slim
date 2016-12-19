@@ -12,7 +12,7 @@ html lang="en"
   body
     .container
       nav role="main"
-        strong = @current_site.title
+        strong = link @current_site.title, to: "/"
         = if @current_user do
           '  &middot; <%= @current_user.name %>
           '  &middot; <%= link "Log out", to: "#" %>
