@@ -11,6 +11,8 @@
 # and so on) as they will fail if something goes wrong.
 
 alias Oldskool.User
+alias Oldskool.Site
 alias Oldskool.Repo
 
-Repo.insert! %User{name: "Hendrik Mans", email: "hendrik@mans.de"}
+hmans = Repo.insert! %User{name: "Hendrik Mans", email: "hendrik@mans.de"}
+Repo.insert! %Site{owner_id: hmans.id, title: "hmans is blogging, yo", host: "hmans.io", description: "The blog of Hendrik Mans."}
