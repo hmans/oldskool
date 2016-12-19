@@ -15,6 +15,7 @@ defmodule Oldskool.Router do
 
   scope "/", Oldskool do
     pipe_through :browser # Use the default browser stack
+    resources "/posts", PostController
   end
 
   # Other scopes may use custom stacks.
