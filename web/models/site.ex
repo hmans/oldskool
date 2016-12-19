@@ -4,8 +4,8 @@ defmodule Oldskool.Site do
   schema "sites" do
     belongs_to :owner, Oldskool.User
 
-    field :title, :string
-    field :host, :string
+    field :title, :string, null: false
+    field :host, :string, null: false
     field :description, :string
 
     timestamps()
