@@ -22,3 +22,8 @@ Repo.insert! Post.changeset(%Post{author_id: hmans.id, site_id: site.id}, %{
   title: "Hello world",
   body: "Uh, _hi world_, **long time** no see?\n\nHere's another paragraph."
 })
+
+Repo.insert! Post.changeset(%Post{author_id: hmans.id, site_id: site.id}, %{
+  title: "Another post",
+  body: "Here's another post for your enjoyment."
+})
