@@ -18,7 +18,7 @@ alias Oldskool.Post
 hmans = Repo.insert! %User{name: "Hendrik Mans", email: "hendrik@mans.de"}
 site = Repo.insert! %Site{owner_id: hmans.id, title: "hmans is blogging, yo", host: "hmans.io", description: "The blog of Hendrik Mans."}
 
-Repo.insert! Post.changeset(%Post{author_id: hmans.id}, %{
+Repo.insert! Post.changeset(%Post{author_id: hmans.id, site_id: site.id}, %{
   title: "Hello world",
   body: "Uh, _hi world_, **long time** no see?\n\nHere's another paragraph."
 })

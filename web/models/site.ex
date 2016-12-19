@@ -7,8 +7,9 @@ defmodule Oldskool.Site do
     field :title, :string, null: false
     field :host, :string, null: false
     field :description, :string
-
     timestamps()
+
+    has_many :posts, Oldskool.Post
   end
 
   @doc """
