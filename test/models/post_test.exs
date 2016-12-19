@@ -3,16 +3,16 @@ defmodule Oldskool.PostTest do
 
   alias Oldskool.Post
 
-  @valid_attrs %{body: "some content", html: "some content", title: "some content"}
+  @valid_attrs %{body: "some content", title: "some content"}
   @invalid_attrs %{}
 
   test "changeset with valid attributes" do
-    changeset = Post.changeset(%Post{}, @valid_attrs)
+    changeset = Post.changeset(%Post{author_id: 1}, @valid_attrs)
     assert changeset.valid?
   end
 
   test "changeset with invalid attributes" do
-    changeset = Post.changeset(%Post{}, @invalid_attrs)
+    changeset = Post.changeset(%Post{author_id: 1}, @invalid_attrs)
     refute changeset.valid?
   end
 
