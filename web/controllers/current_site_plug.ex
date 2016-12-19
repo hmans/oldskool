@@ -12,6 +12,8 @@ defmodule Oldskool.Plugs.CurrentSite do
   end
 
   defp find_current_site do
+    # TODO: actually find current site by host name
+
     Site
     |> Query.first
     |> Repo.one

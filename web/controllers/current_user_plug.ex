@@ -12,6 +12,8 @@ defmodule Oldskool.Plugs.CurrentUser do
   end
 
   defp find_current_user do
+    # TODO: actually find current user by cookie
+
     User
     |> Query.first
     |> Repo.one
