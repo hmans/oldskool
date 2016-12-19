@@ -125,38 +125,11 @@ textarea#recipe_recipe_text {
 }
 
 
+/* post specific */
 
-/* recipe grids */
+article.post {
+  margin-bottom: 4em;
 
-ul.recipes {
-  list-style: none;
-  padding-left: 0;
-  clear: both;
-
-  >li {
-    display: block;
-    float: left;
-    margin-right: 1em;
-
-    >a {
-      display: block;
-      background-color: whitesmoke;
-      padding: 1em;
-      width: 200px;
-      height: 200px;
-      border: 2px solid transparent;
-
-      &:hover {
-        border-color: lightgrey;
-      }
-    }
-  }
-}
-
-
-/* recipe specific */
-
-section.recipe {
   h1 {
     font: 44px "EB Garamond", serif;
     color: #555;
@@ -164,9 +137,5 @@ section.recipe {
 
   h2 {
     color: $col2;
-  }
-
-  .ingredients, .recipe {
-    margin: 3em 0;
   }
 }
