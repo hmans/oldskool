@@ -10,9 +10,12 @@
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
 
+alias Oldskool.Repo
 alias Oldskool.User
 alias Oldskool.Site
-alias Oldskool.Repo
+alias Oldskool.Post
 
 hmans = Repo.insert! %User{name: "Hendrik Mans", email: "hendrik@mans.de"}
-Repo.insert! %Site{owner_id: hmans.id, title: "hmans is blogging, yo", host: "hmans.io", description: "The blog of Hendrik Mans."}
+site = Repo.insert! %Site{owner_id: hmans.id, title: "hmans is blogging, yo", host: "hmans.io", description: "The blog of Hendrik Mans."}
+
+Repo.insert! %Post{author_id: hmans.id, title: "Hello world", body: "Uh, hi world, long time no see?"}
