@@ -9,6 +9,7 @@ defmodule Oldskool.Router do
     plug :put_secure_browser_headers
 
     plug Oldskool.Plugs.CurrentUser
+    plug Oldskool.Plugs.CurrentSite
   end
 
   pipeline :api do
