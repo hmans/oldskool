@@ -9,3 +9,8 @@
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
+
+alias Oldskool.User
+alias Oldskool.Repo
+
+Repo.insert! %User{name: "Hendrik Mans", email: "hendrik@mans.de"}

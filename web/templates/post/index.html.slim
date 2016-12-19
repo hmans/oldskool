@@ -1,1 +1,4 @@
-h1 hi!
+= if @current_user do
+  h1 hi <%= @current_user.name %>
+- else
+  h1 please log in
