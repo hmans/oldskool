@@ -1,2 +1,6 @@
+= if can?(@current_user, create(Oldskool.Post)) do
+  ul.actions
+    li = link "New Post", to: post_path(@conn, :new), class: "button"
+
 = for post <- @posts do
   = render "_post.html", conn: @conn, post: post

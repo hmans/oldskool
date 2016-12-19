@@ -3,9 +3,12 @@ defimpl Canada.Can, for: Oldskool.User do
   alias Oldskool.User
 
   # Anyone can read all posts
-  def can?(%User{}, :read, %Post{}), do: true
+  def can?(_, :read, %Post{}), do: true
 
-  # Post authors can update posts
+  # Users can create new posts
+  def can?(%User{}, :create, Post), do: true
+
+  # Post authors can update their own posts
   def can?(%User{id: id}, action, %Post{author_id: id})
     when action in [:update, :destroy], do: true
 

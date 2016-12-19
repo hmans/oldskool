@@ -1,3 +1,6 @@
 h2 Editing Post
 
-= render "_form.html", conn: @conn, changeset: @changeset
+= render "_form.html",
+  conn: @conn,
+  changeset: @changeset,
+  action: post_path(@conn, :update, @changeset.data)
