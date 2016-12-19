@@ -15,4 +15,10 @@ defmodule Oldskool.PostTest do
     changeset = Post.changeset(%Post{}, @invalid_attrs)
     refute changeset.valid?
   end
+
+  test "changeset will render body to html" do
+    params = %{ @valid_attrs | body: "I'm _Markdown_ formatted!" }
+    changeset = Post.changeset(%Post{}, params)
+    assert changeset.changes.html == "<p>I’m <em>Markdown</em> formatted!</p>\n"
+  end
 end

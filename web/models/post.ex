@@ -14,7 +14,19 @@ defmodule Oldskool.Post do
 
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:title, :body, :html])
-    |> validate_required([:title, :body, :html])
+    |> cast(params, [:title, :body])
+    |> validate_required([:title, :body, :author_id])
+    |> render_body_to_html
   end
+
+  defp render_body_to_html(changeset) do
+    body = get_change(changeset, :body)
+
+    if body do
+      put_change(changeset, :html, Earmark.to_html(body))
+    else
+      changeset
+    end
+  end
+
 end
