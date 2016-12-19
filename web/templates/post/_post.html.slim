@@ -1,3 +1,3 @@
 article
   h2 = @post.title
-  = @post.body
+  = @post.body |> Earmark.to_html |> raw
