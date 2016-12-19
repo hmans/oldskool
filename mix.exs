@@ -40,7 +40,8 @@ defmodule Oldskool.Mixfile do
      {:cowboy, "~> 1.0"},
      {:phoenix_slime, "~> 0.8.0"},
      {:credo, "~> 0.5", only: [:dev, :test]},
-     {:earmark, "~> 1.0.3" }]
+     {:earmark, "~> 1.0.3" },
+     {:canada, "~> 1.0.0"}]
   end
 
   # Aliases are shortcuts or tasks specific to the current project.

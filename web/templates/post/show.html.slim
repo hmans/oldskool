@@ -1,1 +1,6 @@
 = render "_post.html", conn: @conn, post: @post
+
+= if can?(@current_user, update(@post)) do
+  ul.actions
+    li = link "Edit", to: post_path(@conn, :edit, @post), class: "button"
+  
