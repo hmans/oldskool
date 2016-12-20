@@ -18,5 +18,10 @@ defmodule StringerTest do
       string = "hello  world"
       assert Stringer.parameterize(string) == "hello-world"
     end
+
+    test "it correctly converts umlauts" do
+      string = "Ä Ü Ö ä ü ö ß"
+      assert Stringer.parameterize(string) == "ae-ue-oe-ae-ue-oe-ss"
+    end
   end
 end

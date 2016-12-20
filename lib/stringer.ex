@@ -14,10 +14,20 @@ defmodule Stringer do
 
       iex> Stringer.parameterize("Hello, world!")
       "hello-world"
+
+  Stringer will also correctly convert umlauts:
+
+      iex> Stringer.parameterize("I'm über!")
+      "im-ueber"
+
   """
   def parameterize(string) do
     string
     |> String.downcase
+    |> String.replace(~r/ä/, "ae")
+    |> String.replace(~r/ö/, "oe")
+    |> String.replace(~r/ü/, "ue")
+    |> String.replace(~r/ß/, "ss")
     |> String.replace(~r/[^ a-zA-Z0-9]/, "")
     |> String.replace(~r/\s/, "-")
     |> String.replace(~r/-{2,}/, "-")
