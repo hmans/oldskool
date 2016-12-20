@@ -57,6 +57,7 @@ defmodule Oldskool.PostController do
   end
 
   def edit(conn, %{"id" => id}) do
+    {id, _} = Integer.parse(id)
     post = conn |> current_site_posts |> Repo.get!(id)
     changeset = Post.changeset(post)
 
@@ -67,6 +68,7 @@ defmodule Oldskool.PostController do
   end
 
   def update(conn, %{"id" => id, "post" => post_params}) do
+    {id, _} = Integer.parse(id)
     post = conn |> current_site_posts |> Repo.get!(id)
 
     conn = authorize!(conn, post)
@@ -80,6 +82,7 @@ defmodule Oldskool.PostController do
   end
 
   def delete(conn, %{"id" => id}) do
+    {id, _} = Integer.parse(id)
     post = conn |> current_site_posts |> Repo.get!(id)
 
     conn = authorize!(conn, post)
