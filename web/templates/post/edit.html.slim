@@ -4,3 +4,7 @@ h2 Editing Post
   conn: @conn,
   changeset: @changeset,
   action: post_path(@conn, :update, @changeset.data)
+
+= if can?(@current_user, :delete, @changeset.data) do
+  ul.actions
+    li = link "Delete", to: post_path(@conn, :delete, @changeset.data), method: :delete, data: [confirm: "moo?"], class: "button button-red"

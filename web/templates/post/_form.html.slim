@@ -12,7 +12,3 @@
   ul.actions
     li = submit "Save"
     - IO.inspect @changeset
-
-= if @changeset.data.id do
-  ul.actions
-    li = link "Delete", to: post_path(@conn, :delete, @changeset.data), method: :delete, data: [confirm: "moo?"], class: "button button-red"

@@ -28,5 +28,19 @@ defmodule Oldskool.Post do
       changeset
     end
   end
+end
 
+defmodule Oldskool.Post.Policy do
+  alias Oldskool.User
+  alias Oldskool.Post
+
+  def can?(%User{id: user_id}, _action, %Post{author_id: author_id})
+    when user_id == author_id, do: true
+
+  def can?(_, :index, _), do: true
+  def can?(_, :show, _), do: true
+  def can?(%User{}, :new, Post), do: true
+  def can?(%User{}, :create, Post), do: true
+
+  def can?(_, _, _), do: false
 end

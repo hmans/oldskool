@@ -42,7 +42,7 @@ defmodule Oldskool.Mixfile do
      {:phoenix_slime, "~> 0.8.0"},
      {:credo, "~> 0.5", only: [:dev, :test]},
      {:earmark, "~> 1.0.3" },
-     {:canada, "~> 1.0.0"},
+     {:bodyguard, "~> 0.5.0"},
      {:ueberauth, "~> 0.4"},
      {:ueberauth_github, "~> 0.4"}]
   end

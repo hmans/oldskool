@@ -36,6 +36,8 @@ defmodule Oldskool.Web do
 
       import Oldskool.Router.Helpers
       import Oldskool.Gettext
+
+      import Bodyguard.Controller
     end
   end
 
@@ -52,6 +54,8 @@ defmodule Oldskool.Web do
       import Oldskool.Router.Helpers
       import Oldskool.ErrorHelpers
       import Oldskool.Gettext
+
+      import Bodyguard.ViewHelpers
     end
   end
 
