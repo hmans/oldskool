@@ -1,3 +1,7 @@
 article.post
-  h2 = link @post.title, to: post_path(@conn, :show, @post.id)
+  .meta = link format_time(@post.inserted_at), to: post_path(@conn, :show, @post.id)
+  
+  = if @post.title do
+    h2 = link @post.title, to: post_path(@conn, :show, @post.id)
+    
   = @post.html |> raw

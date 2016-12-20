@@ -20,6 +20,7 @@ defmodule Oldskool.Mixfile do
     [mod: {Oldskool, []},
      applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
                     :phoenix_ecto, :postgrex,
+                    :timex,
                     :ueberauth, :ueberauth_github]]
   end
 
@@ -44,7 +45,8 @@ defmodule Oldskool.Mixfile do
      {:earmark, "~> 1.0.3" },
      {:bodyguard, "~> 0.5.0"},
      {:ueberauth, "~> 0.4"},
-     {:ueberauth_github, "~> 0.4"}]
+     {:ueberauth_github, "~> 0.4"},
+     {:timex, "~> 3.0"}]
   end
 
   # Aliases are shortcuts or tasks specific to the current project.

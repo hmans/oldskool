@@ -136,6 +136,19 @@ form.link {
 article.post {
   margin: 4em 0;
 
+  .meta {
+    color: lightgrey;
+    font-size: 0.825em;
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
   h1 {
     font: 44px "EB Garamond", serif;
     color: #555;
