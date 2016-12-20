@@ -44,3 +44,19 @@ defmodule Oldskool.Post.Policy do
 
   def can?(_, _, _), do: false
 end
+
+
+defimpl Phoenix.Param, for: Oldskool.Post do
+  def to_param(%{id: id, title: nil}) do
+    "#{id}"
+  end
+
+  def to_param(%{id: id, title: title}) do
+    title = title
+    |> String.downcase
+    |> String.replace(~r/[^ a-z,A-Z,0-9]/, "")
+    |> String.replace(~r/\s/, "-")
+
+    "#{id}-#{title}"
+  end
+end

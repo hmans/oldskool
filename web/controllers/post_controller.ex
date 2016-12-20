@@ -17,6 +17,10 @@ defmodule Oldskool.PostController do
   end
 
   def show(conn, %{"id" => id}) do
+    # Convert sluggified IDs ("5-foo") to just IDs (5). Can we rely to
+    # always get `id` as a String here?
+    {id, _} = Integer.parse(id)
+
     post = conn |> current_site_posts |> Repo.get!(id)
 
     conn
