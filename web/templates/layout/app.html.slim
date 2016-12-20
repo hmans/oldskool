@@ -6,7 +6,7 @@ html lang="en"
     meta content="width=device-width, initial-scale=1" name="viewport"
     meta content="" name="description"
     meta content="" name="author"
-    title Hello ApplicationName!
+    title = assigns[:page_title] || @current_site.title
     link rel="stylesheet" href="#{static_path(@conn, "/css/app.css")}"
     script src="#{static_path(@conn, "/js/app.js")}"
 

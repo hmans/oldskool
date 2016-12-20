@@ -21,6 +21,7 @@ defmodule Oldskool.PostController do
 
     conn
     |> authorize!(post)
+    |> assign(:page_title, post.title)
     |> render("show.html", post: post)
   end
 
@@ -29,6 +30,7 @@ defmodule Oldskool.PostController do
 
     conn
     |> authorize!(Post)
+    |> assign(:page_title, "New Post")
     |> render("new.html", changeset: changeset)
   end
 
@@ -56,6 +58,7 @@ defmodule Oldskool.PostController do
 
     conn
     |> authorize!(post)
+    |> assign(:page_title, "Editing Post")
     |> render("edit.html", changeset: changeset)
   end
 
