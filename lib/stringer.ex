@@ -32,4 +32,21 @@ defmodule Stringer do
     |> String.replace(~r/\s/, "-")
     |> String.replace(~r/-{2,}/, "-")
   end
+
+
+  @doc """
+  Converts a string to a "titleized" format, with all words (with some exceptions)
+  individually capitalized.
+
+  Examples:
+
+      iex> Stringer.titleize("I'm the king of the world!")
+      "I'm The King Of The World!"
+
+  """
+  def titleize(string) do
+    string
+    |> String.split
+    |> Enum.map_join(" ", &String.capitalize(&1))
+  end
 end
