@@ -23,7 +23,7 @@ defmodule Oldskool.Post do
     body = get_change(changeset, :body)
 
     if body do
-      put_change(changeset, :html, Earmark.to_html(body))
+      put_change(changeset, :html, Earmark.to_html(body, %Earmark.Options{code_class_prefix: "lang- language-"}))
     else
       changeset
     end

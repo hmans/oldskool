@@ -64,6 +64,7 @@ exports.config = {
   },
 
   npm: {
-    enabled: true
+    enabled: true,
+    styles: {"highlight.js": ['styles/tomorrow-night-eighties.css']}
   }
 };

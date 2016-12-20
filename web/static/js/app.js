@@ -13,14 +13,17 @@
 // to also remove its path from "config.paths.watched".
 import "phoenix_html"
 
+import $ from "jquery"
+import hljs from "highlight.js"
+
 // Turbolinks
 var Turbolinks = require("turbolinks")
 Turbolinks.start()
 
-
-// Import local files
-//
-// Local files can be imported directly using relative
-// paths "./socket" or full ones "web/static/js/socket".
+$(document).on("turbolinks:load", function() {
+  $('pre code').each(function(i, e) {
+    hljs.highlightBlock(e)
+  })
+})
 
 // import socket from "./socket"
