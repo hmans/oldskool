@@ -52,11 +52,6 @@ defimpl Phoenix.Param, for: Oldskool.Post do
   end
 
   def to_param(%{id: id, title: title}) do
-    title = title
-    |> String.downcase
-    |> String.replace(~r/[^ a-z,A-Z,0-9]/, "")
-    |> String.replace(~r/\s/, "-")
-
-    "#{id}-#{title}"
+    "#{id}-#{Stringer.parameterize title}"
   end
 end
