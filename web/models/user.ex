@@ -7,4 +7,8 @@ defmodule Oldskool.User do
 
     timestamps
   end
+
+  def logged_out do
+    %__MODULE__{}
+  end
 end

@@ -13,11 +13,11 @@ html lang="en"
     .container
       nav role="main"
         strong = link @current_site.title, to: "/"
-        = if @current_user do
+        = if @current_user.id do
           '  &middot; <%= @current_user.name %>
-          '  &middot; <%= link "Log out", to: "#" %>
+          '  &middot; <%= link "Log out", to: session_path(@conn, :delete), method: "delete" %>
         - else
-          '  &middot; <%= link "Log in", to: "#" %>
+          '  &middot; <%= link "Log in", to: session_path(@conn, :new) %>
 
       p.alert.alert-info role="alert"= get_flash(@conn, :info)
       p.alert.alert-danger role="alert"= get_flash(@conn, :error)

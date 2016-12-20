@@ -19,7 +19,8 @@ defmodule Oldskool.Mixfile do
   def application do
     [mod: {Oldskool, []},
      applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex]]
+                    :phoenix_ecto, :postgrex,
+                    :ueberauth, :ueberauth_github]]
   end
 
   # Specifies which paths to compile per environment.
@@ -41,7 +42,9 @@ defmodule Oldskool.Mixfile do
      {:phoenix_slime, "~> 0.8.0"},
      {:credo, "~> 0.5", only: [:dev, :test]},
      {:earmark, "~> 1.0.3" },
-     {:canada, "~> 1.0.0"}]
+     {:canada, "~> 1.0.0"},
+     {:ueberauth, "~> 0.4"},
+     {:ueberauth_github, "~> 0.4"}]
   end
 
   # Aliases are shortcuts or tasks specific to the current project.

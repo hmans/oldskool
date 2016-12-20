@@ -125,6 +125,12 @@ textarea#recipe_recipe_text {
 }
 
 
+/* stupid non-UJS link forms */
+
+form.link {
+  display: inline;
+}
+
 /* post specific */
 
 article.post {

@@ -18,7 +18,14 @@ defmodule Oldskool.Router do
 
   scope "/", Oldskool do
     pipe_through :browser # Use the default browser stack
+
+    # authentication
+    get "/auth/:provider", SessionController, :request
+    get "/auth/:provider/callback", SessionController, :callback
+
     resources "/posts", PostController
+    resources "/session", SessionController, singleton: true
+
     get "/", PostController, :index
   end
 
