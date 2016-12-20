@@ -1,4 +1,10 @@
 defmodule Stringer do
+  @moduledoc """
+  Various String conversion functions I may or may not eventually extract
+  into their own Hex package. Wheee!
+  """
+
+
   @doc """
   Converts a string into a new string that you can use as part of a URL. More
   specifically, this involves lowercasing the string, removing most
