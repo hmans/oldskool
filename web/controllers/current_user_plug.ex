@@ -11,7 +11,7 @@ defmodule Oldskool.Plugs.CurrentUser do
   end
 
   defp find_current_user(conn) do
-    load_current_user_from_cookie(conn) || User.logged_out
+    load_current_user_from_cookie(conn)
   end
 
   defp load_current_user_from_cookie(conn) do

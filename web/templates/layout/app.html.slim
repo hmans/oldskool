@@ -13,7 +13,7 @@ html lang="en"
     .container
       nav role="main"
         strong = link @current_site.title, to: "/"
-        = if @current_user.id do
+        = if @current_user do
           '  &middot; <%= @current_user.name %>
           '  &middot; <%= link "Log out", to: session_path(@conn, :delete), method: "delete" %>
         - else

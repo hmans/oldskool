@@ -1,17 +1,26 @@
-defimpl Canada.Can, for: Oldskool.User do
+defmodule Oldskool.Permissions do
   alias Oldskool.Post
   alias Oldskool.User
 
-  # Anyone can read all posts
-  def can?(_, :read, %Post{}), do: true
+  def can?(%User{id: user_id}, action, %Post{author_id: user_id})
+    when action in [:update, :delete], do: true
 
-  # Users can create new posts
   def can?(%User{}, :create, Post), do: true
 
-  # Post authors can update their own posts
-  def can?(%User{id: id}, action, %Post{author_id: id})
-    when action in [:update, :destroy], do: true
+  def can?(_, action, subject) do
+    case {action, subject} do
+      {:read, %Post{}} -> true
+      {_, _} -> false
+    end
+  end
+end
 
-  # Default everything else to false
-  def can?(_, _, _), do: false
+defimpl Canada.Can, for: Atom do
+  def can?(nil, verb, subject),
+    do: Oldskool.Permissions.can?(nil, verb, subject)
+end
+
+defimpl Canada.Can, for: Oldskool.User do
+  def can?(user, verb, subject),
+    do: Oldskool.Permissions.can?(user, verb, subject)
 end
